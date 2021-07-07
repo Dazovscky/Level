@@ -1,0 +1,89 @@
+{% extends 'server/base.html' %}
+{% load static %}
+
+{% block content_right %}
+    <div class="content_right_header">
+        Наши новинки
+    </div>
+    <div class="content_right_product">
+        {% for _ in ''|rjust:3 %}
+            {% for product in obj %}
+                {% if product.status == 'new' %}
+                    {% include 'server/includes/inc_product.html' with id=product.id status=product.status image=product.image name=product.name price_now=product.price_now price_old=product.price_old %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+    <div class="content_right_header">
+        Хит продаж
+    </div>
+    <div class="content_right_product">
+        {% for _ in ''|rjust:3 %}
+            {% for product in obj %}
+                {% if product.status == 'hot' %}
+                    {% include 'server/includes/inc_product.html' with id=product.id status=product.status image=product.image name=product.name price_now=product.price_now price_old=product.price_old %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+    <div class="content_right_header">
+        Скидки!
+    </div>
+
+    <div class="content_right_product">
+        {% for _ in ''|rjust:3 %}
+            {% for product in obj %}
+                {% if product.status == 'sale' %}
+                    {% include 'server/includes/inc_product.html' with id=product.id status=product.status image=product.image name=product.name price_now=product.price_now price_old=product.price_old %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block brends_main %}
+    <div class="brends_main">
+        <img src="{% static 'main/img/brands/castorland.png' %}" alt="">
+        <img src="{% static 'main/img/brands/crowd_games.jpg' %}" alt="">
+        <img src="{% static 'main/img/brands/bondibon.png' %}" alt="">
+        <img src="{% static 'main/img/brands/gaga2.png' %}" alt="">
+        <img src="{% static 'main/img/brands/hobby_world.png' %}" alt="">
+        <img src="{% static 'main/img/brands/ni.png' %}" alt="">
+        <img src="{% static 'main/img/brands/umbum.png' %}" alt="">
+        <img src="{% static 'main/img/brands/zvezda.gif' %}" alt="">
+    </div>
+{% endblock %}
+
+{% block instagram %}
+    <div class="instagram_feed_wrap">
+        <div class="instagram_feed_header">
+            <i class="fab fa-instagram"></i>
+            <span>Instagram feed:</span>
+            #сундукссокровищами
+        </div>
+        <div class="instagram_feed_images">
+            <img src="{% static 'main/img/instagram/1.jpg' %}" alt="">
+            <img src="{% static 'main/img/instagram/2.jpg' %}" alt="">
+            <img src="{% static 'main/img/instagram/3.jpg' %}" alt="">
+            <img src="{% static 'main/img/instagram/4.jpeg' %}" alt="">
+            <img src="{% static 'main/img/instagram/5.jpg' %}" alt="">
+            <img src="{% static 'main/img/instagram/6.jpg' %}" alt="">
+        </div>
+    </div>
+{% endblock %}
+
+{% block social_buttons %}
+    <div class="social_buttons_wrap">
+        <a href="#">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#">
+            <i class="fab fa-pinterest-p"></i>
+        </a>
+    </div>
+{% endblock %}

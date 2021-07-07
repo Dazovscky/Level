@@ -1,0 +1,14 @@
+{% extends 'server/base.html' %}
+{% load static %}
+
+{% block content_right %}
+    <div class="content_right_header">
+        Удаление продукта "{{ object.name }}"
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        <span>Продукт "{{ object.name }}" будет удален без возможности его восстановления. Удалить продукт?</span>
+        <br>
+        <input type="submit">
+    </form>
+{% endblock %}
